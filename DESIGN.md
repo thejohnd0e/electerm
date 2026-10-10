@@ -23,7 +23,7 @@ electerm is a compact terminal command center. The UI stays quiet so terminal ou
 | Status / info | `--info` | `#FFD166` | Informational notices |
 | Status / success | `--success` | `#06D6A0` | Connected and successful states |
 | Status / error | `--error` | `#EF476F` | Errors and destructive actions |
-| Status / warning | `--warn` | `#E55934` | Cautions and experimental features |
+| Status / warning | `--warn` | `#E55934` | Cautions and warnings |
 
 Theme variables may be overridden by the user's selected theme; components should reference variables rather than duplicate the palette.
 
@@ -68,14 +68,14 @@ Right-side panels are resizable app-shell regions. Their content owns vertical s
 
 ### AI configuration form
 - **Structure**: provider selector, optional provider account state, model and role fields, then save/test actions.
-- **Variants**: API, ChatGPT subscription, experimental SuperGrok subscription.
+- **Variants**: API, ChatGPT subscription, SuperGrok subscription.
 - **States**: default, loading, connected, missing permission, unsupported platform, error.
 - **Accessibility**: retain Ant Design labels, required-field messages, keyboard navigation, and focus behavior.
 - **Layout**: vertical form inside the existing scrollable modal.
 
 ### AI provider status
 - **Structure**: inline status alert plus provider actions.
-- **Variants**: ChatGPT connected/disconnected; SuperGrok connected/disconnected/experimental; unsupported platform.
+- **Variants**: ChatGPT connected/disconnected; SuperGrok connected/disconnected; unsupported platform.
 - **States**: loading, success, warning, error, pending device-code authorization.
 - **Accessibility**: status is visible text, not color alone; device code remains selectable/copyable.
 

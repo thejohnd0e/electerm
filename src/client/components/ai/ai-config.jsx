@@ -337,7 +337,7 @@ export default function AIConfigForm ({ initialValues, onSubmit, showAIConfig })
           <Select options={[
             { value: 'api', label: 'API key / compatible provider' },
             { value: 'chatgpt', label: 'ChatGPT subscription', disabled: !subscriptionSupported },
-            { value: 'supergrok', label: 'SuperGrok subscription (experimental)', disabled: !subscriptionSupported }
+            { value: 'supergrok', label: 'SuperGrok subscription', disabled: !subscriptionSupported }
           ]}
           />
         </Form.Item>

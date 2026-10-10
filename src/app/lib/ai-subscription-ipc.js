@@ -9,7 +9,7 @@ function pick (source, keys) {
 function createAISubscriptionIpc (subscriptions) {
   return {
     async getAISubscriptionStatus (providerAI) {
-      return pick(await subscriptions.getAISubscriptionStatus(providerAI), ['supported', 'configured', 'hint', 'planUsageEnabled', 'experimental'])
+      return pick(await subscriptions.getAISubscriptionStatus(providerAI), ['supported', 'configured', 'hint', 'planUsageEnabled'])
     },
     async signInChatGPT () {
       return pick(await subscriptions.signInChatGPT(), ['supported', 'configured', 'hint', 'planUsageEnabled'])
@@ -21,7 +21,7 @@ function createAISubscriptionIpc (subscriptions) {
       return pick(await subscriptions.beginSuperGrokSignIn(), ['attemptId', 'verificationUrl', 'userCode', 'expiresIn'])
     },
     async finishSuperGrokSignIn (attemptId) {
-      return pick(await subscriptions.finishSuperGrokSignIn(attemptId), ['supported', 'configured', 'hint', 'experimental'])
+      return pick(await subscriptions.finishSuperGrokSignIn(attemptId), ['supported', 'configured', 'hint'])
     },
     cancelSuperGrokSignIn (attemptId) {
       return pick(subscriptions.cancelSuperGrokSignIn(attemptId), ['cancelled'])

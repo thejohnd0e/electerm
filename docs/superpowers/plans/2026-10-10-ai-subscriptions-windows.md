@@ -19,7 +19,7 @@
 - ChatGPT plan usage requires the `chatgpt.tokens.use.direct` grant and Responses API requests with `stream: true` and `store: false`.
 - Responses are successful only after `response.completed`; failed, incomplete, malformed, or prematurely closed streams are errors.
 - Do not silently fall back to API-key billing or another provider when a subscription request fails.
-- SuperGrok subscription OAuth is experimental and undocumented by xAI; disclose that status in the UI and treat provider authorization denial as a final, actionable error.
+- Treat SuperGrok provider authorization denial as a final, actionable error.
 - Preserve API mode, old configuration, existing chat history, and existing IPC call compatibility.
 - Automated auth and HTTP tests use mock servers and synthetic credentials only; never use live subscription accounts or tokens in automated tests.
 - Keep the existing AI flows and platform behavior unchanged unless needed for subscription routing.
@@ -295,7 +295,7 @@ Status may contain `supported`, `configured`, `hint`, and `planUsageEnabled`, bu
 - [ ] Add UI-level assertions for API/ChatGPT/SuperGrok selection and API-only fields hidden in subscription mode.
 - [ ] Add UI-level assertions for model refresh, model choice and normal save/validation.
 - [ ] Add mocked IPC tests for ChatGPT connected/no-plan-permission status, browser sign-in/cancel/sign-out, and ChatGPT usage link.
-- [ ] Add mocked IPC tests for SuperGrok device code, pending state, cancellation, sign-out and explicit experimental status.
+- [ ] Add mocked IPC tests for SuperGrok device code, pending state, cancellation and sign-out.
 - [ ] Add assertions that account records and token values are not displayed or inserted into form values.
 - [ ] Implement controls; disable subscription selection when backend says unsupported; show API as unaffected default.
 - [ ] Use approved OpenAI button label “Continue with ChatGPT”.
@@ -341,7 +341,7 @@ Status may contain `supported`, `configured`, `hint`, and `planUsageEnabled`, bu
 - Modify: `TODO.md`
 - Verify: project npm scripts and Windows packaged app.
 
-- [ ] Document ChatGPT and experimental SuperGrok subscription setup, Windows-only availability, account usage links, local encrypted session storage, limitations, and API-mode coexistence.
+- [ ] Document ChatGPT and SuperGrok subscription setup, Windows-only availability, account usage links, local encrypted session storage, limitations, and API-mode coexistence.
 - [ ] Document that ChatGPT subscription usage is separate from API keys, requires explicit OAuth grant, uses Responses API constraints, and shares provider policies.
 - [ ] Run `npm run lint`; expect Standard lint to pass.
 - [ ] Run `npm run test-unit-ci`; expect unit-CI suite to pass, including AI API regression tests.
@@ -367,7 +367,7 @@ Status may contain `supported`, `configured`, `hint`, and `planUsageEnabled`, bu
 | ChatGPT agent mode | Local tools are invoked from normalized function-call events |
 | ChatGPT usage limit | Clear usage-limit error and management link; no automatic retry/fallback |
 | SuperGrok device flow | Code is shown, browser opens, approval persists encrypted session |
-| SuperGrok denied account | User receives explicit experimental-provider denial; no infinite retry |
+| SuperGrok denied account | User receives an explicit provider denial; no infinite retry |
 | Sign-out/cancel | Credentials cleared or pending attempt stopped; late results cannot recreate session |
 | Chat history resume | Each session continues with its original provider, or clearly asks for reconnection |
 | Context compression | Summary uses the same provider as the conversation |

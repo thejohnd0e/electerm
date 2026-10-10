@@ -76,7 +76,6 @@ export default function AISubscriptionAccount ({ providerAI }) {
 
   return (
     <div className='ai-subscription-account mg1b'>
-      {providerAI === 'supergrok' && <Alert className='mg1b' type='warning' showIcon title='Experimental: SuperGrok subscription OAuth uses an undocumented xAI device flow.' />}
       {error && <Alert className='mg1b' type='error' showIcon title={error} />}
       {device && <Alert className='mg1b' type='info' showIcon title={<Space direction='vertical'><Text>Enter code <Text strong copyable>{device.userCode}</Text></Text><Link href={device.verificationUrl} target='_blank' rel='noreferrer'>Open xAI authorization</Link><Text>Expires in {device.expiresIn}s</Text></Space>} />}
       {status.configured && <Alert className='mg1b' type={status.planUsageEnabled === false ? 'warning' : 'success'} showIcon title={status.hint} />}

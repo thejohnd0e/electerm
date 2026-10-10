@@ -80,7 +80,7 @@ function createSuperGrokAuth ({ storage, http = require('axios'), openExternal =
             throw error
           }
           currentAttempt = null
-          return { configured: true, supported: process.platform === 'win32', hint: 'SuperGrok connected (experimental)' }
+          return { configured: true, supported: process.platform === 'win32', hint: 'SuperGrok connected' }
         }
         const code = body.error
         if (code === 'authorization_pending') continue
@@ -141,7 +141,7 @@ function createSuperGrokAuth ({ storage, http = require('axios'), openExternal =
     },
     async status () {
       const record = await storage.get('supergrok')
-      return { supported: process.platform === 'win32', configured: !!record, experimental: true, hint: record ? 'SuperGrok connected (experimental)' : 'Experimental SuperGrok subscription sign-in' }
+      return { supported: process.platform === 'win32', configured: !!record, hint: record ? 'SuperGrok connected' : 'SuperGrok subscription sign-in' }
     },
     getAccessToken,
     async signOut () {
