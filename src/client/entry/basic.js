@@ -5,6 +5,11 @@ import '../css/basic.styl'
 import '../css/mobile.styl'
 import '../common/pre'
 
+if (import.meta.env.DEV) {
+  Promise.all([import('react-grab'), import('react-scan')])
+    .catch(error => console.error('Failed to load React dev tools', error))
+}
+
 const { isDev } = window.et
 const { version } = window.pre.packInfo
 
