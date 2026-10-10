@@ -21,6 +21,7 @@ const getPort = require('./get-port')
 const globalState = require('./glob-state')
 const webviewHandler = require('./webview-handler')
 const { getTitleBarOptions, windowBackground } = require('./title-bar')
+const clearStaleCache = require('./clear-stale-cache')
 
 // A crashed / reloaded renderer leaves the window object alive, and sending to
 // it then throws "Render frame was disposed before WebFrameMain could be
@@ -103,6 +104,7 @@ exports.createWindow = async function (userConfig) {
     const dataUrl = `data:text/html;charset=utf-8,${encodeURIComponent(htmlContent)}`
     win.loadURL(dataUrl)
   })
+  await clearStaleCache(win.webContents.session)
   win.loadURL(opts)
   win.webContents.once('dom-ready', () => {
     if (isDev && !userConfig.disableDeveloperTool) {
