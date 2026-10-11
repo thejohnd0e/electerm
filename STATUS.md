@@ -32,7 +32,7 @@
 
 ## Local git state
 
-- `master` is ahead of `origin/master` (the fork) by 35 commits and has not been pushed. It also carries agent docs (`AGENTS.md`, `STATUS.md`, etc.) that are intentionally not part of the upstream PR.
+- `master` is ahead of `origin/master` (the fork) by 36 commits at the time of this handoff and has not been pushed. It also carries agent docs (`AGENTS.md`, `STATUS.md`, etc.) that are intentionally not part of the upstream PR.
 - Remote `upstream` points to `https://github.com/electerm/electerm.git`.
 
 ## Exact next step
