@@ -30,9 +30,13 @@
 - Installer signing status was not verified (the build log shows signtool steps); treat it as unverified.
 - `.omo/` is untracked local session metadata; do not commit it.
 
+## Release
+
+- Fork release: https://github.com/thejohnd0e/electerm/releases/tag/v5.5.79-subscriptions.1 (Windows x64 NSIS installer, unsigned, built from `master`; SHA-256 in the release notes). Build recipe is under "What currently works".
+
 ## Local git state
 
-- `master` is ahead of `origin/master` (the fork) by 36 commits at the time of this handoff and has not been pushed. It also carries agent docs (`AGENTS.md`, `STATUS.md`, etc.) that are intentionally not part of the upstream PR.
+- `master` has been pushed to the fork (`origin/master`). It also carries agent docs (`AGENTS.md`, `STATUS.md`, etc.) that are intentionally not part of the upstream PR.
 - Remote `upstream` points to `https://github.com/electerm/electerm.git`.
 
 ## Exact next step
