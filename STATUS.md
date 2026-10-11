@@ -18,7 +18,7 @@
 ## In progress
 
 - The owner reports having tested the feature in the fork on Windows and that it works (sign-in, chat, API mode). The per-item results of the smoke matrix in the plan document are not recorded.
-- Waiting for the maintainer's reply on the proposal issue https://github.com/electerm/electerm/issues/4591 (design and scope of subscription sign-in). The ConPTY packaging fix is promised there as a separate bug issue and is not filed yet.
+- Waiting for the maintainer's reply on the proposal issue https://github.com/electerm/electerm/issues/4591 (design and scope of subscription sign-in). The ConPTY packaging fix is promised there as a separate bug issue and is not filed yet; the underlying bug is unverified (see TODO.md).
 - If PRs are sent later, `feat/ai-subscriptions` conflicts with `upstream/master`: upstream moved `build/` to `src/build/`, so `build/bin/after-pack.js` must become `src/build/bin/after-pack.js` and its config reference and test path must follow.
 
 ## Known issues and blockers
