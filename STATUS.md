@@ -17,7 +17,7 @@
 
 ## In progress
 
-- The rest of the manual Windows smoke matrix is not done: streaming/tool use, cancellation, persistence across restarts and sign-out per provider, local terminal startup in the installed app, and API-mode regression.
+- The owner reports having tested the feature in the fork on Windows and that it works (sign-in, chat, API mode). The per-item results of the smoke matrix in the plan document are not recorded.
 - PR #4589 is open and currently **conflicting** with `upstream/master`: upstream moved `build/` to `src/build/`, so `build/bin/after-pack.js` must become `src/build/bin/after-pack.js`, and the reference in `src/build/electron-builder.json` and the path in the packaging test must follow. No maintainer feedback yet.
 
 ## Known issues and blockers
