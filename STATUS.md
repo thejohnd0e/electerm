@@ -2,7 +2,7 @@
 
 ## Completed
 
-- Windows-only ChatGPT and SuperGrok subscription sign-in, encrypted token storage, provider routing, account controls, and provider-aware chat history/labels. API-key providers remain available. The "experimental" labeling was removed from the UI and docs on request.
+- Windows-only ChatGPT and SuperGrok subscription sign-in, encrypted token storage, provider routing, account controls, and provider-aware chat history/labels. API-key providers remain available.
 - Windows packaging of `conpty.dll` and `OpenConsole.exe` through the electron-builder after-pack hook.
 - Fixed the AI panel title staying on the old API brand ("Deepseek") after selecting ChatGPT. The source was already correct; same-version rebuilds were served from Chromium's 1-year HTTP cache. `src/app/lib/clear-stale-cache.js` now clears that cache once when bundled assets change.
 - Unit tests for subscription auth, storage, IPC, routing, labels, request formatting and ConPTY packaging, plus AI settings E2E coverage.
@@ -12,7 +12,7 @@
 
 - AI and ConPTY unit tests pass (165/165 on the PR branch); lint passes on the whole project.
 - Verified on the unpacked build through DevTools: with `providerAI: "chatgpt"` the right-panel title shows "ChatGPT".
-- Confirmed manually by the owner on the installed app: ChatGPT and SuperGrok show as connected, provider selection and labels update, the "experimental" wording is gone.
+- Confirmed manually by the owner on the installed app: ChatGPT and SuperGrok show as connected, provider selection and labels update.
 - Latest installer: `dist/electerm-5.5.79-win-x64-installer.exe` (built 2026-10-10 20:21 with `WORKFLOW_NAME=latest npx electron-builder --win nsis --x64 --config build/electron-builder.json --publish never`). ConPTY files are present in `dist/win-unpacked`.
 
 ## In progress
@@ -23,7 +23,6 @@
 ## Known issues and blockers
 
 - Upstream `.github/CONTRIBUTING.md` asks that new features be discussed in an issue first and that one PR solve one issue; the maintainer may ask to split or close #4589.
-- SuperGrok sign-in relies on xAI's device authorization behavior, which is not published as a stable API; the PR description mentions this.
 - `npm run lint` and the pre-push hook fail under `cmd.exe` (`./node_modules/.bin/...` is not resolved). Run them with `npm_config_script_shell='C:\Program Files\Git\bin\bash.exe'`; do not use `--no-verify`.
 - `node --test src/test/unit-ci/*.spec.js` hangs on this machine (unrelated specs); run the AI and ConPTY specs by name instead.
 - `npm run prepare-file` fails with an npm peer-dependency `ERESOLVE`. Workaround used: `npm run build`, copy changed `src/app` files into `work/app`, then run electron-builder directly. If `work/app/assets/chunk` accumulates stale chunks from older builds, delete `work/app/assets/chunk` and `work/app/assets/js` before `npm run build`.
